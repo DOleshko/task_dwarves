@@ -12,10 +12,9 @@ def put_on_hats(dw_list,num):
         i += 1
 
 def calc_CRC(elements, begin, end):
-
     CRC = elements[end] ^ elements[end-1]
     i = end - 2
-        
+    
     while i >= begin:
         CRC = CRC ^ elements[i]
         i -= 1
@@ -31,20 +30,14 @@ def tell_ogre(dwarve_hat, guess_color):
 
 #------------------------------------------
 
-#d_num = 7 
-#dwarves = [1,1,1,1,1,1,1]
-
 d_num = random.randint(5,31)
 put_on_hats(dwarves, d_num)
-
 print(dwarves)
 
 CRC = calc_CRC(dwarves, 1, len(dwarves)-1)
-
 tell_ogre(dwarves[0], CRC)
 
 d_curr = 1
-
 while d_curr < d_num :
     elements = []
     
